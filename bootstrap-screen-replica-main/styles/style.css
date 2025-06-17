@@ -1,0 +1,308 @@
+
+/* Importação da fonte */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #ff6b9d 0%, #ff8cc8 50%, #ffa8d8 100%);
+    min-height: 100vh;
+}
+
+/* Container principal do login */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Seção da ilustração */
+.illustration-section {
+    background: linear-gradient(135deg, #ff6b9d 0%, #ff8cc8 100%);
+    height: 280px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Efeito de chuva de traços */
+.illustration-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(45deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: rain 20s linear infinite;
+}
+
+@keyframes rain {
+    0% { transform: translateY(-50px); }
+    100% { transform: translateY(50px); }
+}
+
+/* Pote de vidro */
+.coin-jar {
+    position: relative;
+    z-index: 2;
+}
+
+.jar-top {
+    width: 80px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 40px 40px 0 0;
+    margin: 0 auto;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-bottom: none;
+}
+
+.jar-body {
+    width: 120px;
+    height: 140px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+/* Label do pote */
+.jar-label {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.log-text {
+    margin-right: 8px;
+}
+
+.in-text {
+    margin-left: 8px;
+}
+
+/* Moedas dentro do pote */
+.coin {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.coin-1 {
+    background: #ffd700;
+    bottom: 20px;
+    left: 30px;
+    transform: rotate(15deg);
+}
+
+.coin-2 {
+    background: #90EE90;
+    bottom: 35px;
+    right: 25px;
+    transform: rotate(-20deg);
+}
+
+.coin-3 {
+    background: #87CEEB;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.coin-4 {
+    background: #DDA0DD;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-30deg);
+}
+
+.coin-5 {
+    background: #F0E68C;
+    bottom: 40px;
+    left: 20px;
+    transform: rotate(60deg);
+}
+
+.coin-6 {
+    background: #FFB6C1;
+    bottom: 15px;
+    right: 40px;
+    transform: rotate(-45deg);
+}
+
+/* Mão e moeda caindo */
+.falling-coin {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    z-index: 3;
+}
+
+.hand {
+    position: relative;
+    width: 30px;
+    height: 40px;
+}
+
+.finger {
+    width: 8px;
+    height: 25px;
+    background: #FDBCB4;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.thumb {
+    width: 6px;
+    height: 15px;
+    background: #FDBCB4;
+    border-radius: 3px;
+    position: absolute;
+    top: 8px;
+    right: -2px;
+    transform: rotate(30deg);
+}
+
+.coin-falling {
+    width: 16px;
+    height: 16px;
+    background: #ffd700;
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fall 2s ease-in infinite;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fall {
+    0% {
+        transform: translateX(-50%) translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Seção do formulário */
+.form-section {
+    padding: 2rem !important;
+}
+
+/* Campos de entrada */
+.form-control {
+    border: none;
+    border-bottom: 2px solid #e0e0e0;
+    border-radius: 0;
+    padding: 12px 0;
+    font-size: 16px;
+    background: transparent;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-bottom-color: #6c5ce7;
+    background: transparent;
+}
+
+.form-label {
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* Botão principal */
+.login-btn {
+    background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+    border: none;
+    border-radius: 25px;
+    padding: 14px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3);
+    background: linear-gradient(135deg, #5f4bd8 0%, #9289fc 100%);
+}
+
+/* Botões sociais */
+.social-btn {
+    border-radius: 25px;
+    padding: 12px;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Links */
+a {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+a:hover {
+    color: #333;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .login-container {
+        margin: 20px;
+        max-width: calc(100% - 40px);
+    }
+    
+    .illustration-section {
+        height: 240px;
+    }
+    
+    .jar-body {
+        width: 100px;
+        height: 120px;
+    }
+    
+    .form-section {
+        padding: 1.5rem !important;
+    }
+}
